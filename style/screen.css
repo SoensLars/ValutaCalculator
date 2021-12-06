@@ -52,8 +52,9 @@
     --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
  
     --global-whitespace-xs: calc(var(--global-baseline) * 1); /* = 8px */
-    --global-whitespace-sm: calc(var(--global-baseline) * 1.5); /*  = 10px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 1.5); /*  = 12px */
     --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+    --global-whitespace-mm: calc(var(--global-baseline) * 2.5);/*  = 20px */
     --global-whitespace-lg: calc(var(--global-baseline) * 3); /*  = 24px */
     --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3);  /*= 72px */ 
@@ -149,47 +150,47 @@ h3 {
 h1 {
     font-size: 50px;
     line-height: 50px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 @media (max-width: 700px) {
     h1 {
         font-size: 40px;
-        margin: 0 0 12px;
+        margin: 0 0 var(--global-whitespace-sm);
     }
 }
 
 @media (max-width: 480px) {
     h1 {
         font-size: 32px;
-        margin: 0 0 12px;
+        margin: 0 0 var(--global-whitespace-sm);
     }
 }
 
 h2 {
     font-size: 24px;
     line-height: 40px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 @media (max-width: 700px) {
     h2 {
         font-size: 20px;
-        margin: 0 0 12px;
+        margin: 0 0 var(--global-whitespace-sm);
     }
 }
 
 h3 {
     font-size: 20px;
     line-height: 32px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-lg);
     font-weight: 400;
 }
 
 @media (max-width: 700px) {
     h3 {
         font-size: 20px;
-        margin: 0 0 8px;
+        margin: 0 0 var(--global-whitespace-xs);
     }
 }
 
@@ -199,7 +200,7 @@ h6 {
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 p,
@@ -209,12 +210,12 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: var(--global-whitespace-lg);
 }
 
 li ul,
@@ -353,7 +354,7 @@ input::placeholder {
     max-width: 300px;
     max-height: 75px;
     color: var(--font-color);
-    border: 3px solid var(--global-color);
+    border: var(--global-borderRadius) solid var(--global-color);
     /* border-radius: 50%; */
 }
 
@@ -366,8 +367,8 @@ input::placeholder {
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: var(--global-whitespace-sm);
+    right: var(--global-whitespace-sm);
     pointer-events: none;
     fill: var(--global-color);
 }
@@ -378,8 +379,8 @@ input::placeholder {
 
 .c-info-currency {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: var(--global-whitespace-xl);
+    margin-bottom: var(--global-whitespace-mm);
 }
 
 .c-equal {
@@ -416,11 +417,11 @@ input::placeholder {
     border: none;
     color: white;
     background-color: var(--global-color);
-    border-radius: 6px;
+    border-radius: calc(var(--global-borderRadius) * 2);
     text-transform: uppercase;
     font-weight: 600;
     font-size: 20px;
-    padding: 12px 0;
+    padding: var(--global-whitespace-sm) 0;
 }
 
 .c-button-calculate:active {
@@ -455,7 +456,7 @@ input::placeholder {
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: 3px solid var(--global-color);
+    border: var(--global-borderRadius) solid var(--global-color);
     border-radius: 50px / 95%;
     max-width: 200px;
     font-family: inherit;
@@ -483,9 +484,8 @@ input::placeholder {
     /* display: block;
     margin: auto; */
     /* width: 650px; */
-    padding-bottom: 50px;
+    padding-bottom: var(--global-whitespace-xl);
 }
-
 
 /*------------------------------------*\
 #UTILITIES
