@@ -1,9 +1,12 @@
 'use strict';
 
-let graph, logo, page;
-let stateLogo = 0; // Niet geklikt
+let buttonSelector, listCurrency1, listCurrency2, graph, logo, page;
 let pointColorGraph = '#ECECEC'
 let fontColorGraph = "#000";
+
+let stateLogo = 0; // Niet geklikt
+let stateArrow1 = 0; // Niet geklikt
+let stateArrow2 = 0; // Niet geklikt
 
 const getDate = function (getal) {
   if (getal == 0) {
@@ -98,7 +101,6 @@ function showCurrencies(waardeNieuw, waardeOud) {
 function drawChart(d1, d2, d3, d4, d5, d6, d7) {
   let ctx = graph.getContext('2d');
 
-  // let chart = new Chart(ctx, {
   new Chart(ctx, {
     type: 'line',
     data: {
@@ -117,6 +119,10 @@ function drawChart(d1, d2, d3, d4, d5, d6, d7) {
       ],
     },
     options: {
+      title: {
+        display: true,
+        text: `${currency1.toUpperCase()} values of the last 7 days in ${currency2.toUpperCase()}`
+      },
       defaultFontColor: (Chart.defaults.global.defaultFontColor = fontColorGraph),
       tooltips: {
         xPadding: 10,
@@ -136,14 +142,9 @@ function drawChart(d1, d2, d3, d4, d5, d6, d7) {
   });
 };
 
-function listenToClickButton() {
-  let buttonSelector = document.querySelector('.js-button');
-  let listCurrency1 = document.querySelector('.js-currency1');
-  let listCurrency2 = document.querySelector('.js-currency2');
-    
+function listenToClickButton() {    
   buttonSelector.addEventListener('click', function () {
     TweenMax.fromTo('#Current',1.5,{scale: 0}, {scale: 1});
-    // TweenMax.fromTo('#Procent',1,{scale: 0}, {scale: 1});
     let tl = gsap.timeline({
       defaults: {
         duration: 0.25,
@@ -159,21 +160,6 @@ function listenToClickButton() {
     });
     tl.play()
 
-    // let tp = gsap.timeline({
-    //   defaults: {
-    //     duration: 0.25,
-    //     ease: 'power1.inOut',
-    //   },
-    //   repeat: 2,
-    //   yoyo: true,
-    // });    
-    // tp.fromTo('#Current',{
-    //   y: 2.5,
-    // },{
-    //   y: 0,
-    // });
-    // tp.play()
-    // console.log('cliked')
     currency1 = listCurrency1.value;
     currency2 = listCurrency2.value;
     console.log(currency1, currency2)
@@ -215,15 +201,43 @@ function listenToClickLogo() {
   })
 }
 
+function listenToClickInput() {
+  listCurrency1.addEventListener('click', function () {
+    if (stateArrow1 == 0) {
+      TweenLite.to("#Arrow1", 0.35, {rotation:180});
+      stateArrow1 = 1;
+    }
+    else {
+      TweenLite.to("#Arrow1", 0.35, {rotation:0});
+      stateArrow1 = 0;
+    }
+  })
+
+  listCurrency2.addEventListener('click', function () {
+    if (stateArrow2 == 0) {
+      TweenLite.to("#Arrow2", 0.35, {rotation:180});
+      stateArrow2 = 1;
+    }
+    else {
+      TweenLite.to("#Arrow2", 0.35, {rotation:0});
+      stateArrow2 = 0;
+    }
+  })
+}
+
 const init = function () {
+  buttonSelector = document.querySelector('.js-button');
+  listCurrency1 = document.querySelector('.js-currency1');
+  listCurrency2 = document.querySelector('.js-currency2');
   graph = document.querySelector(".js-graph");
-  page = document.querySelector(".js-html-page")
+  page = document.querySelector(".js-html-page");
   logo = document.querySelector(".js-logo");
 
   getInfoWaarde(getDate(0), getDate(6), currency1, currency2);
   getInfoGrafiek(currency1, currency2)
   listenToClickButton();
   listenToClickLogo();
+  listenToClickInput();
 };
 
 document.addEventListener('DOMContentLoaded', function () {
