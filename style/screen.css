@@ -148,48 +148,48 @@ h3 {
 }
 
 h1 {
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 3rem;
+    line-height: 3rem;
     margin: 0 0 var(--global-whitespace-lg);
 }
 
 @media (max-width: 700px) {
     h1 {
-        font-size: 40px;
+        font-size: 2.5rem;
         margin: 0 0 var(--global-whitespace-sm);
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 32px;
+        font-size: 2rem;
         margin: 0 0 var(--global-whitespace-sm);
     }
 }
 
 h2 {
-    font-size: 24px;
-    line-height: 40px;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
     margin: 0 0 var(--global-whitespace-lg);
 }
 
 @media (max-width: 700px) {
     h2 {
-        font-size: 20px;
+        font-size: 1.25rem;
         margin: 0 0 var(--global-whitespace-sm);
     }
 }
 
 h3 {
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 1.25rem;
+    line-height: 2rem;
     margin: 0 0 var(--global-whitespace-lg);
     font-weight: 400;
 }
 
 @media (max-width: 700px) {
     h3 {
-        font-size: 20px;
+        font-size: 1.25rem;
         margin: 0 0 var(--global-whitespace-xs);
     }
 }
@@ -197,9 +197,9 @@ h3 {
 h4,
 h5,
 h6 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
-    line-height: 24px;
+    line-height: 1.5rem;
     margin: 0 0 var(--global-whitespace-lg);
 }
 
@@ -364,8 +364,8 @@ input::placeholder {
 }
 
 .c-custom-select__symbol {
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     position: absolute;
     top: var(--global-whitespace-sm);
     right: var(--global-whitespace-sm);
@@ -384,7 +384,7 @@ input::placeholder {
 }
 
 .c-equal {
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .c-current {
@@ -393,7 +393,7 @@ input::placeholder {
 }
 
 .c-procent {
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 .c-procent__pos {
@@ -420,13 +420,12 @@ input::placeholder {
     border-radius: calc(var(--global-borderRadius) * 2);
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.25rem;
     padding: var(--global-whitespace-sm) 0;
 }
 
 .c-button-calculate:active {
     background-color: var(--global-button-active-color);
-    /* border: 1px solid var(--global-color); */
 }
 
 @media (max-width: 900px) {
