@@ -3,15 +3,15 @@
 \*------------------------------------*/
 
 @font-face {
-    font-family: "Inter Web";
-    font-weight: 400;
-    src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-family: 'Inter Web';
+  font-weight: 400;
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: "Inter Web";
-    font-weight: 600;
-    src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
+  font-family: 'Inter Web';
+  font-weight: 600;
+  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
 }
 
 /*------------------------------------*\
@@ -19,47 +19,47 @@
 \*------------------------------------*/
 
 :root {
-    /* Global colors */
-    --global-color: #6F00FF; 
-    --global-color-green: #0FE100;
-    --global-color-red: #E10000;
-    --global-color-orange: #E18100;
+  /* Global colors */
+  --global-color: #6f00ff;
+  --global-color-green: #0fe100;
+  --global-color-red: #e10000;
+  --global-color-orange: #e18100;
 
-    --global-background-color-light: #ECECEC; 
-    --global-background-color-black: #1F1F1F;
+  --global-background-color-light: #ececec;
+  --global-background-color-black: #1f1f1f;
 
-    --global-button-active-color: #5700C7;
-    --global-color-transparent: rgb(111, 0, 255, 0.3);
+  --global-button-active-color: #5700c7;
+  --global-color-transparent: rgb(111, 0, 255, 0.3);
 
-    --global-fontColor-dark: #000;
-    --global-fontColor-light: #fff;
+  --global-fontColor-dark: #000;
+  --global-fontColor-light: #fff;
 
-    --global-boxShadow: 0 0 0 3px;
+  --global-boxShadow: 0 0 0 3px;
 
-    /* global page settings */
-    --global-max-width: 790px;
-    --global-max-width-s: 600px;   
-    --global-max-width-xs: 420px;  
-    --global-max-width-xxs: 320px;  
- 
-    /* borders */
-    --global-borderRadius: 3px;
-    --global-borderWidth: 1px;
- 
-    /* transitions */
-    --global-transitionTiming-alpha: .1s ease-out;
- 
-    /* Baseline settings */
-    --global-baseline: 0.5rem;         
-    --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
- 
-    --global-whitespace-xs: calc(var(--global-baseline) * 1); /* = 8px */
-    --global-whitespace-sm: calc(var(--global-baseline) * 1.5); /*  = 12px */
-    --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
-    --global-whitespace-mm: calc(var(--global-baseline) * 2.5);/*  = 20px */
-    --global-whitespace-lg: calc(var(--global-baseline) * 3); /*  = 24px */
-    --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
-    --global-whitespace-xxl: calc(var(--global-whitespace) * 3);  /*= 72px */ 
+  /* global page settings */
+  --global-max-width: 49.375rem;
+  --global-max-width-s: 37.5rem;
+  --global-max-width-xs: 26.25rem;
+  --global-max-width-xxs: 20rem;
+
+  /* borders */
+  --global-borderRadius: 3px;
+  --global-borderWidth: 1px;
+
+  /* transitions */
+  --global-transitionTiming-alpha: 0.1s ease-out;
+
+  /* Baseline settings */
+  --global-baseline: 0.5rem;
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+  --global-whitespace-xs: calc(var(--global-baseline) * 1); /* = 8px */
+  --global-whitespace-sm: calc(var(--global-baseline) * 1.5); /*  = 12px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+  --global-whitespace-mm: calc(var(--global-baseline) * 2.5); /*  = 20px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 3); /*  = 24px */
+  --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+  --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*= 72px */
 }
 
 /*------------------------------------*\
@@ -73,39 +73,29 @@
 */
 
 html {
-    --background-color: var(--global-background-color-light);
-    --font-color: var(--global-fontColor-dark);
-    font-size: 1rem;
-    line-height: 1.5;
-    font-family: "Inter Web", arial, sans-serif;
-    color: var(--font-color);
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: var(--background-color);
-}
-
-.dark-mode {
-    --background-color: var(--global-background-color-black);
-    --font-color: var(--global-fontColor-light);
-}
-
-#myGraph {
-    width: 3;
-    height: 1;
+  --background-color: var(--global-background-color-light);
+  --font-color: var(--global-fontColor-dark);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: 'Inter Web', arial, sans-serif;
+  color: var(--font-color);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    min-height: 100vh;
-    display: grid;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
 /*
@@ -116,15 +106,15 @@ body {
 */
 
 ::-moz-selection {
-    background: var(--global-color);
-    color: var(--global-fontColor-light);
-    text-shadow: none;
+  background: var(--global-color);
+  color: var(--global-fontColor-light);
+  text-shadow: none;
 }
 
 ::selection {
-    background: var(--global-color);
-    color: var(--global-fontColor-light);
-    text-shadow: none;
+  background: var(--global-color);
+  color: var(--global-fontColor-light);
+  text-shadow: none;
 }
 
 /*------------------------------------*\
@@ -138,8 +128,8 @@ Default markup for images to make them responsive
 */
 
 img {
-    max-width: 100%;
-    vertical-align: top;
+  max-width: 100%;
+  vertical-align: top;
 }
 
 /*
@@ -151,13 +141,26 @@ img {
 h1,
 h2,
 h3 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 h1 {
-    font-size: 3rem;
-    line-height: 3rem;
-    margin: 0 0 var(--global-whitespace-lg);
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 0 0 var(--global-whitespace-lg);
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  margin: 0 0 var(--global-whitespace-lg);
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin: 0 0 var(--global-whitespace-lg);
+  font-weight: 400;
 }
 
 @media (max-width: 43.75rem) {
@@ -165,9 +168,19 @@ h1 {
         font-size: 2.5rem;
         margin: 0 0 var(--global-whitespace-sm);
     }
+
+    h2 {
+        font-size: 1.25rem;
+        margin: 0 0 var(--global-whitespace-sm);
+    }
+
+    h3 {
+        font-size: 1rem;
+        margin: 0 0 var(--global-whitespace-xs);
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
     h1 {
         --graphWidth: 1;
         font-size: 2rem;
@@ -175,40 +188,13 @@ h1 {
     }
 }
 
-h2 {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    margin: 0 0 var(--global-whitespace-lg);
-}
-
-@media (max-width: 700px) {
-    h2 {
-        font-size: 1.25rem;
-        margin: 0 0 var(--global-whitespace-sm);
-    }
-}
-
-h3 {
-    font-size: 1.25rem;
-    line-height: 2rem;
-    margin: 0 0 var(--global-whitespace-lg);
-    font-weight: 400;
-}
-
-@media (max-width: 700px) {
-    h3 {
-        font-size: 1.25rem;
-        margin: 0 0 var(--global-whitespace-xs);
-    }
-}
-
 h4,
 h5,
 h6 {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5rem;
-    margin: 0 0 var(--global-whitespace-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin: 0 0 var(--global-whitespace-lg);
 }
 
 p,
@@ -218,30 +204,30 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 var(--global-whitespace-lg);
+  margin: 0 0 var(--global-whitespace-lg);
 }
 
 ul,
 ol {
-    padding-left: var(--global-whitespace-lg);
+  padding-left: var(--global-whitespace-lg);
 }
 
 li ul,
 li ol {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 label,
 input {
-    display: block;
+  display: block;
 }
 
 select {
-    width: 100%;
+  width: 100%;
 }
 
 input::placeholder {
-    color: gray;
+  color: gray;
 }
 
 /*------------------------------------*\
@@ -253,8 +239,8 @@ input::placeholder {
 */
 
 .o-row {
-    position: relative;
-    /* padding: var(--global-whitespace) var(--global-whitespace) 0; */
+  position: relative;
+  padding: var(--global-whitespace-sm);
 }
 
 /*
@@ -264,26 +250,26 @@ input::placeholder {
 */
 
 .o-button-reset {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
 
-    /* inherit font & color from ancestor */
-    color: inherit;
-    font: inherit;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
 
-    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-    line-height: normal;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
 
-    /* Corrects font smoothing for webkit */
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
 
-    /* Corrects inability to style clickable `input` types in iOS */
-    -webkit-appearance: none;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
 }
 
 /*
@@ -293,14 +279,14 @@ input::placeholder {
 */
 
 .o-hide-accessible {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /*------------------------------------*\
@@ -313,21 +299,26 @@ input::placeholder {
     Dark or Light Mode
 */
 
+.dark-mode {
+  --background-color: var(--global-background-color-black);
+  --font-color: var(--global-fontColor-light);
+}
+
 .c-mode {
-    display: flex;
-    align-items: center;
-    font-family: inherit;   
-    font-size: 0.75rem;
-    padding-bottom: 1.5rem;
-    width: 5rem;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 0.75rem;
+  padding-bottom: 1.5rem;
+  width: 5rem;
 }
 
 .c-mode:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .c-light {
-    color: var(--global-color);
+  color: var(--global-color);
 }
 
 /*
@@ -336,16 +327,16 @@ input::placeholder {
     Website main logo
 */
 
-.c-logo{
-    /* grid-column-start: 2; */
+.c-logo {
+  width: 50;
+  height: 50;
 }
 
-.c-logo-text {
-    gap: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 43.75rem) {
+  .c-logo {
+    width: 40;
+    height: 40;
+  }
 }
 
 /*
@@ -355,199 +346,215 @@ input::placeholder {
 */
 
 .c-app {
-    max-width: var(--global-max-width);
-    margin: auto;
+  max-width: var(--global-max-width);
+  margin: auto;
 }
 
-@media (max-width: 900px) {
-    .c-app {
-        max-width: var(--global-max-width-s);
-    }
+@media (max-width: 56.25rem) {
+  .c-app {
+    max-width: var(--global-max-width-s);
+  }
 }
 
-@media (max-width: 700px) {
-    .c-app {
-        max-width: var(--global-max-width-xs);
-    }
+@media (max-width: 43.75rem) {
+  .c-app {
+    max-width: var(--global-max-width-xs);
+  }
 }
 
-@media (max-width: 480px) {
-    .c-app {
-        max-width: var(--global-max-width-xxs);
-    }
+@media (max-width: 30rem) {
+  .c-app {
+    max-width: var(--global-max-width-xxs);
+  }
 }
+
+/*
+    Component: Currencies + different values
+*/
+
+.c-info-currency {
+  text-align: center;
+  margin-top: var(--global-whitespace-xl);
+  margin-bottom: var(--global-whitespace-mm);
+}
+
+.c-equal {
+  font-size: 1.25rem;
+}
+
+.c-current {
+  color: var(--global-color);
+  padding: 0px 0;
+}
+
+.c-procent {
+  font-size: 2.5rem;
+}
+
+/*
+    Component: Button Calculate
+*/
+
+.c-button-calculate {
+  width: var(--global-max-width);
+  border: none;
+  color: white;
+  background-color: var(--global-color);
+  border-radius: calc(var(--global-borderRadius) * 2);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: var(--global-whitespace-sm) 0;
+}
+
+.c-button-calculate:hover {
+  box-shadow: var(--global-boxShadow) var(--global-color-transparent);
+}
+
+.c-button-calculate:active {
+  box-shadow: var(--global-boxShadow) var(--global-color-transparent);
+  background-color: var(--global-button-active-color);
+}
+
+@media (max-width: 56.25rem) {
+  .c-button-calculate {
+    width: var(--global-max-width-s);
+  }
+}
+
+@media (max-width: 43.75rem) {
+  .c-button-calculate {
+    width: var(--global-max-width-xs);
+  }
+}
+
+@media (max-width: 30rem) {
+  .c-button-calculate {
+    width: var(--global-max-width-xxs);
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+}
+
+/*
+    Component: Selector
+    ---
+    Items of the inputfields
+*/
 
 .c-currency-selector {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* display: grid;
-    grid-template-columns: 33.333% 33.333% 33.333%;
-    justify-content: space-between;
-    align-items: center;  */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-/* 
-@media (max-width: 700px) {
-    .c-currency-selector {
-        flex-direction: column;
-    }
-} */
 
 .c-currency-selector__item {
-    max-width: 300px;
-    max-height: 75px;
-    color: var(--font-color);
-    border: var(--global-borderRadius) solid var(--global-color);
-    /* border-radius: 50%; */
+  max-width: 300px;
+  max-height: 75px;
+  color: var(--font-color);
+  border: var(--global-borderRadius) solid var(--global-color);
 }
 
 .c-custom-select {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 }
-
-/* .c-custom-select1 {
-    grid-column-start: 1;
-}
-
-.c-custom-select1 {
-    grid-column-start: 3;
-} */
-
 
 .c-custom-select__symbol {
-    width: 2rem;
-    height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: var(--global-whitespace-sm);
+  right: var(--global-whitespace-sm);
+  pointer-events: none;
+  fill: var(--global-color);
+  background-color: var(--background-color);
+}
+
+@media (max-width: 43.75rem) {
+  .c-custom-select__symbol {
+    width: 1.5rem;
+    height: 1.5rem;
     position: absolute;
     top: var(--global-whitespace-sm);
     right: var(--global-whitespace-sm);
     pointer-events: none;
     fill: var(--global-color);
     background-color: var(--background-color);
-}
-
-/*
-    Component: Currency
-*/
-
-.c-info-currency {
-    text-align: center;
-    margin-top: var(--global-whitespace-xl);
-    margin-bottom: var(--global-whitespace-mm);
-}
-
-.c-equal {
-    font-size: 1.25rem;
-}
-
-.c-current {
-    color: var(--global-color);
-    padding: 0px 0;
-}
-
-.c-procent {
-    font-size: 2.5rem;
-}
-
-.c-procent__pos {
-    color: var(--global-color-green);
-}
-
-.c-procent__neg {
-    color: var(--global-color-red);
-}
-
-.c-procent__even {
-    color: var(--global-color-orange);
-}
-
-/*
-    Component: Button
-*/
-
-.c-button-calculate {
-    width: var(--global-max-width);
-    border: none;
-    color: white;
-    background-color: var(--global-color);
-    border-radius: calc(var(--global-borderRadius) * 2);
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 1.25rem;
-    padding: var(--global-whitespace-sm) 0;
-}
-
-.c-button-calculate:hover {
-    box-shadow: var(--global-boxShadow) var(--global-color-transparent);
-}
-
-.c-button-calculate:active {
-    box-shadow: var(--global-boxShadow) var(--global-color-transparent);
-    background-color: var(--global-button-active-color);
-}
-
-@media (max-width: 900px) {
-    .c-button-calculate {
-        width: var(--global-max-width-s);
-    }
-}
-
-@media (max-width: 700px) {
-    .c-button-calculate {
-        width: var(--global-max-width-xs);
-    }
-}
-
-@media (max-width: 480px) {
-    .c-button-calculate {
-        width: var(--global-max-width-xxs);
-    }
+  }
 }
 
 /*
     Component: Input
+    ---
+    Input fields to select the currency
 */
 
-.c-input {       
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 100%;
-    border: var(--global-borderRadius) solid var(--global-color);
-    border-radius: 50px / 95%;
-    max-width: 200px;
-    font-family: inherit;
-    font-size: 16px;
-    line-height: calc(var(--global-baseline) * 3);
-    padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
-    outline: none;
-    background-color: var(--background-color);
-    transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
+.c-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: var(--global-borderRadius) solid var(--global-color);
+  border-radius: 3.125rem / 95%;
+  max-width: 14.5rem;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  outline: none;
+  background-color: var(--background-color);
 }
 
-@media (max-width: 700px) {
-    .c-input {
-        max-width: 150px;
-    }
+@media (max-width: 43.75rem) {
+  .c-input {
+    max-width: 8.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    border-radius: 3.125rem / 110%;
+  }
 }
 
-@media (max-width: 480px) {
-    .c-input {
-        max-width: 100px;
-    }
+@media (max-width: 30rem) {
+  .c-input {
+    max-width: 6.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    border-radius: 3.125rem / 110%;
+  }
 }
 
-.c-grafiek {
-    /* display: block;
-    margin: auto; */
-    /* width: 650px; */
-    padding-bottom: var(--global-whitespace-mm);
+/*
+    Component: Grafiek
+    ---
+    Section with the graph
+*/
+
+.c-graph {
+  padding-bottom: var(--global-whitespace-mm);
 }
 
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
 
+/*
+    Utility: Procent
+    ---
+    Different colors of percentage
+*/
+
+.u-procent__pos {
+  color: var(--global-color-green);
+}
+
+.u-procent__neg {
+  color: var(--global-color-red);
+}
+
+.u-procent__even {
+  color: var(--global-color-orange);
+}
 
 /*------------------------------------*\
 #MEDIA
@@ -561,61 +568,61 @@ input::placeholder {
 */
 
 @media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
         http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-    /*
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
     * Don't show links that are fragment identifiers,
     * or use the `javascript:` pseudo protocol
     */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-    pre {
-        white-space: pre-wrap !important;
-    }
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-    /*
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
     * Printing Tables:
     * http://css-discuss.incutio.com/wiki/Printing_Tables
     */
-    thead {
-        display: table-header-group;
-    }
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }

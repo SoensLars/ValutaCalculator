@@ -1,12 +1,11 @@
 'use strict';
 
-// var x;
-let buttonSelector, listCurrency1, listCurrency2, graph, logo, page, mode, modeText, light;
+let buttonSelector, listCurrency1, listCurrency2, graph, logo, page, mode, modeText, light, width;
 let pointColorGraph = '#ECECEC'
 let fontColorGraph = "#000";
 
 let stateMode = 0; // Niet geklikt
-let stateLogo = 0;
+let stateLogo = 0; // Niet geklikt
 let stateArrow1 = 0; // Niet geklikt
 let stateArrow2 = 0; // Niet geklikt
 
@@ -78,6 +77,7 @@ async function getInfoGrafiek(currency1, currency2) {
 }
 //#endregion
 
+//#region variousFunctions
 function showCurrencies(waardeNieuw, waardeOud) {
   // console.log(waardeNieuw, waardeOud);
   let tekstSelector = document.querySelector('.js-equals-tekst');
@@ -95,21 +95,21 @@ function showCurrencies(waardeNieuw, waardeOud) {
   htmlWaarde += `<h1>${waardeNieuw.toFixed(5)} ${currency2.toUpperCase()}</h1>`;
   if (percentage > 0) {
     htmlPercent += `<h2>+${percentage.toFixed(2)}%</h2>`;
-    percentageSelector.classList.remove('c-procent__neg');
-    percentageSelector.classList.remove('c-procent__even');
-    percentageSelector.classList.add('c-procent__pos');
+    percentageSelector.classList.remove('u-procent__neg');
+    percentageSelector.classList.remove('u-procent__even');
+    percentageSelector.classList.add('u-procent__pos');
     }
   if (percentage < 0) {
     htmlPercent += `<h2>${percentage.toFixed(2)}%</h2>`;
-    percentageSelector.classList.remove('c-procent__pos');
-    percentageSelector.classList.remove('c-procent__even');
-    percentageSelector.classList.add('c-procent__neg');
+    percentageSelector.classList.remove('u-procent__pos');
+    percentageSelector.classList.remove('u-procent__even');
+    percentageSelector.classList.add('u-procent__neg');
   }
   if (percentage == 0) {
     htmlPercent += `<h2>${percentage.toFixed(2)}%</h2>`;
-    percentageSelector.classList.remove('c-procent__pos');
-    percentageSelector.classList.remove('c-procent__neg');
-    percentageSelector.classList.add('c-procent__even');
+    percentageSelector.classList.remove('u-procent__pos');
+    percentageSelector.classList.remove('u-procent__neg');
+    percentageSelector.classList.add('u-procent__even');
   }
   tekstSelector.innerHTML = htmlTekst, waardeSelector.innerHTML = htmlWaarde, percentageSelector.innerHTML = htmlPercent;
 };
@@ -157,6 +157,17 @@ function drawChart(d1, d2, d3, d4, d5, d6, d7) {
     },
   });
 };
+
+function chartProp(width) {  
+  var canvas = document.getElementById("myCanvas");
+  if (width < 700) {
+    canvas.width = 1;
+  }
+  else {
+    canvas.width = 3;
+  }
+}
+//#endregion
 
 //#region listenTo-functions
 function listenToClickButton() {    
@@ -206,6 +217,20 @@ function listenToClickLogo() {
 
 function listenToClickMode() {
   mode.addEventListener('click', function () {
+    let tl = gsap.timeline({
+      defaults: {
+        duration: 0.25,
+        ease: 'power1.inOut',
+      },
+      repeat: 0,
+      yoyo: true,
+    });    
+    tl.fromTo('#Mode',{
+      y: 2.5,
+    },{
+      y: 0,
+    });
+    tl.play()
     if (stateMode == 0) {
       modeText.innerHTML = "DARK";
       light.innerHTML = `<title>Click for light theme</title><path fill="currentColor" d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" />`
@@ -250,38 +275,27 @@ function listenToClickInput() {
     }
   });
 
-  page.addEventListener('click', function () {
-    if (stateArrow1 == 0) {
-      TweenLite.to("#Arrow1", 0.35, {rotation:0});
-      stateArrow1 = 0;
-    }
-    else {
-      stateArrow1 = 0;
-    }
-  })
+  // page.addEventListener('click', function () {
+  //   if (stateArrow1 == 1) {
+  //     TweenLite.to("#Arrow1", 0.35, {rotation:0});
+  //     stateArrow1 = 0;
+  //   }
+  //   else {
+  //     stateArrow1 = 0;
+  //   }
+  // })
 
-  page.addEventListener('click', function () {
-    if (stateArrow2 == 0) {
-      TweenLite.to("#Arrow2", 0.35, {rotation:0});
-      stateArrow1 = 0;
-    }
-    else {
-      stateArrow2 = 0;
-    }
-  })
+  // page.addEventListener('click', function () {
+  //   if (stateArrow2 == 0) {
+  //     TweenLite.to("#Arrow2", 0.35, {rotation:0});
+  //     stateArrow1 = 0;
+  //   }
+  //   else {
+  //     stateArrow2 = 0;
+  //   }
+  // })
 }
 //#endregion
-
-function testWidth(width) {  
-  var canvas = document.getElementById("myCanvas");
-  if (width < 700) {
-    canvas.width = 1;
-  }
-  else {
-    canvas.width = 3;
-  }
-}
-
 
 const init = function () {
   buttonSelector = document.querySelector('.js-button');
@@ -293,8 +307,7 @@ const init = function () {
   mode = document.querySelector(".js-mode");
   modeText = document.querySelector(".js-mode-text");
   light = document.querySelector('.js-light');
-
-  let width = document.body.clientWidth;
+  width = document.body.clientWidth;
 
   getCurrencies()
   getInfoWaarde(getDate(0), getDate(6), currency1, currency2);
@@ -303,7 +316,7 @@ const init = function () {
   listenToClickMode();
   listenToClickLogo();
   listenToClickInput();
-  testWidth(width)
+  chartProp(width)
 };
 
 document.addEventListener('DOMContentLoaded', function () {
