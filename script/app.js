@@ -1,5 +1,6 @@
 'use strict';
 
+let tekstSelector, waardeSelector, percentageSelector;
 let buttonSelector, listCurrency1, listCurrency2, graph, logo, page, mode, modeText, light, width;
 let pointColorGraph = '#ECECEC'
 let fontColorGraph = "#000";
@@ -41,58 +42,59 @@ async function getCurrencies() {
 }
 
 async function getInfoWaarde(tijdstipLaatst, tijdstipOud, currency1, currency2) {
-    const response1 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${tijdstipLaatst}/currencies/${currency1}/${currency2}.json`);
-    const response2 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${tijdstipOud}/currencies/${currency1}/${currency2}.json`);
-    let json1 = await response1.json()
-    let json2 = await response2.json()
-    let waardeNieuw = json1[currency2]
-    let waardeOud = json2[currency2]
-    // console.log(waardeNieuw, waardeOud)
-    showCurrencies(waardeNieuw, waardeOud)
+  const response1 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${tijdstipLaatst}/currencies/${currency1}/${currency2}.json`);
+  const response2 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${tijdstipOud}/currencies/${currency1}/${currency2}.json`);
+  let json1 = await response1.json()
+  let json2 = await response2.json()
+  let waardeNieuw = json1[currency2]
+  let waardeOud = json2[currency2]
+  showCurrencies(waardeNieuw, waardeOud)
 }
 
 async function getInfoGrafiek(currency1, currency2) {
-    const response1 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(6)}/currencies/${currency1}/${currency2}.json`);
-    const response2 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(5)}/currencies/${currency1}/${currency2}.json`);
-    const response3 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(4)}/currencies/${currency1}/${currency2}.json`);
-    const response4 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(3)}/currencies/${currency1}/${currency2}.json`);
-    const response5 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(2)}/currencies/${currency1}/${currency2}.json`);
-    const response6 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(1)}/currencies/${currency1}/${currency2}.json`);
-    const response7 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(0)}/currencies/${currency1}/${currency2}.json`);
-    let json1 = await response1.json()
-    let json2 = await response2.json()
-    let json3 = await response3.json()
-    let json4 = await response4.json()
-    let json5 = await response5.json()
-    let json6 = await response6.json()
-    let json7 = await response7.json()
-    let waardeDag1 = json1[currency2]
-    let waardeDag2 = json2[currency2]
-    let waardeDag3 = json3[currency2]
-    let waardeDag4 = json4[currency2]
-    let waardeDag5 = json5[currency2]
-    let waardeDag6 = json6[currency2]
-    let waardeDag7 = json7[currency2]
-    drawChart(waardeDag1, waardeDag2, waardeDag3, waardeDag4, waardeDag5, waardeDag6, waardeDag7)
+  const response1 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(6)}/currencies/${currency1}/${currency2}.json`);
+  const response2 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(5)}/currencies/${currency1}/${currency2}.json`);
+  const response3 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(4)}/currencies/${currency1}/${currency2}.json`);
+  const response4 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(3)}/currencies/${currency1}/${currency2}.json`);
+  const response5 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(2)}/currencies/${currency1}/${currency2}.json`);
+  const response6 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(1)}/currencies/${currency1}/${currency2}.json`);
+  const response7 = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/${getDate(0)}/currencies/${currency1}/${currency2}.json`);
+  let json1 = await response1.json()
+  let json2 = await response2.json()
+  let json3 = await response3.json()
+  let json4 = await response4.json()
+  let json5 = await response5.json()
+  let json6 = await response6.json()
+  let json7 = await response7.json()
+  let waardeDag1 = json1[currency2]
+  let waardeDag2 = json2[currency2]
+  let waardeDag3 = json3[currency2]
+  let waardeDag4 = json4[currency2]
+  let waardeDag5 = json5[currency2]
+  let waardeDag6 = json6[currency2]
+  let waardeDag7 = json7[currency2]
+  drawChart(waardeDag1, waardeDag2, waardeDag3, waardeDag4, waardeDag5, waardeDag6, waardeDag7)
 }
 //#endregion
 
 //#region variousFunctions
 function showCurrencies(waardeNieuw, waardeOud) {
-  // console.log(waardeNieuw, waardeOud);
-  let tekstSelector = document.querySelector('.js-equals-tekst');
-  let waardeSelector = document.querySelector('.js-current-waarde');
-  let percentageSelector = document.querySelector('.js-procent-waarde');
-
   let htmlTekst = '';
   let htmlWaarde = '';
   let htmlPercent = '';
 
   let percentage = (((waardeNieuw-waardeOud)/waardeOud)*100)
-  // console.log(`percentage: ${waardePercentage}`)
 
   htmlTekst += `<h3>1 ${currency1.toUpperCase()} equals</h3>`
-  htmlWaarde += `<h1>${waardeNieuw.toFixed(5)} ${currency2.toUpperCase()}</h1>`;
+  if (waardeNieuw > 100) {
+    htmlWaarde += `<h1>${waardeNieuw.toFixed(2)} ${currency2.toUpperCase()}</h1>`;
+  }
+  else if (waardeNieuw > 10 & waardeNieuw < 100) {
+    htmlWaarde += `<h1>${waardeNieuw.toFixed(3)} ${currency2.toUpperCase()}</h1>`;
+  }
+  else if (waardeNieuw < 10) {
+    htmlWaarde += `<h1>${waardeNieuw.toFixed(5)} ${currency2.toUpperCase()}</h1>`;
+  }
   if (percentage > 0) {
     htmlPercent += `<h2>+${percentage.toFixed(2)}%</h2>`;
     percentageSelector.classList.remove('u-procent__neg');
@@ -274,30 +276,13 @@ function listenToClickInput() {
       stateArrow2 = 0;
     }
   });
-
-  // page.addEventListener('click', function () {
-  //   if (stateArrow1 == 1) {
-  //     TweenLite.to("#Arrow1", 0.35, {rotation:0});
-  //     stateArrow1 = 0;
-  //   }
-  //   else {
-  //     stateArrow1 = 0;
-  //   }
-  // })
-
-  // page.addEventListener('click', function () {
-  //   if (stateArrow2 == 0) {
-  //     TweenLite.to("#Arrow2", 0.35, {rotation:0});
-  //     stateArrow1 = 0;
-  //   }
-  //   else {
-  //     stateArrow2 = 0;
-  //   }
-  // })
 }
 //#endregion
 
 const init = function () {
+  tekstSelector = document.querySelector('.js-equals-tekst');
+  waardeSelector = document.querySelector('.js-current-waarde');
+  percentageSelector = document.querySelector('.js-procent-waarde');
   buttonSelector = document.querySelector('.js-button');
   listCurrency1 = document.querySelector('.js-currency1');
   listCurrency2 = document.querySelector('.js-currency2');
@@ -309,6 +294,7 @@ const init = function () {
   light = document.querySelector('.js-light');
   width = document.body.clientWidth;
 
+  chartProp(width)
   getCurrencies()
   getInfoWaarde(getDate(0), getDate(6), currency1, currency2);
   getInfoGrafiek(currency1, currency2)
@@ -316,7 +302,6 @@ const init = function () {
   listenToClickMode();
   listenToClickLogo();
   listenToClickInput();
-  chartProp(width)
 };
 
 document.addEventListener('DOMContentLoaded', function () {
